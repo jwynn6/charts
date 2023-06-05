@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/invidious
   pullPolicy: IfNotPresent
-  tag: latest@sha256:5d20f0da1044db67b46c4085283a47b02164bbf0c86d59a0bed4d4f865969f43
+  tag: latest@sha256:2d57a83fdafd4a07869d2cca93cfca6a2e939675856345e5886d85c245bac2a5
 
 securityContext:
   container:
