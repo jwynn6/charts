@@ -4,8 +4,8 @@
 apiVersion: traefik.io/v1alpha1
 kind: Middleware
 metadata:
-  name: {{ ternary (printf "%v-%v" $.Release.Name "tc-nextcloud-redirectregex-dav") "tc-nextcloud-redirectregex-dav" $.Values.ingressClass.enabled }}
-  namespace: tc-system
+  name: "tc-nextcloud-redirectregex-dav"
+
 spec:
   redirectRegex:
     regex: "https://(.*)/.well-known/(card|cal)dav"
@@ -14,9 +14,9 @@ spec:
 apiVersion: traefik.io/v1alpha1
 kind: Middleware
 metadata:
-  name: {{ ternary (printf "%v-%v" $.Release.Name "tc-nextcloud-chain") "tc-nextcloud-chain" $.Values.ingressClass.enabled }}
-  namespace: tc-system
+  name: "tc-nextcloud-chain"
+
 spec:
   chain:
     middlewares:
-    - name: {{ ternary (printf "%v-%v" $.Release.Name "tc-nextcloud-redirectregex-dav") "tc-nextcloud-redirectregex-dav" $.Values.ingressClass.enabled }}
+    - name: "tc-nextcloud-redirectregex-dav"
